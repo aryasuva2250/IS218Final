@@ -1,22 +1,13 @@
 from typing import List, Dict
 import simplejson as json
 from flask import Flask, request, Response, redirect
+from flask import current_app as app
 from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
+from app.app import mysql
 
 
-app = Flask(__name__, template_folder="templates")
-mysql = MySQL(cursorclass=DictCursor)
-
-app.config['MYSQL_DATABASE_HOST'] = 'db'
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_PORT'] = 3306
-app.config['MYSQL_DATABASE_DB'] = 'biostats2'
-mysql.init_app(app)
-
-'''
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': "Miguel's Project"}
@@ -132,7 +123,3 @@ def api_delete(person_id) -> str:
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
     return resp
-
-'''
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
