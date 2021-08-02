@@ -6,6 +6,7 @@ from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 from app.app import mysql
+from app.forms import ContactForm
 
 
 @app.route('/', methods=['GET'])
@@ -123,3 +124,10 @@ def api_delete(person_id) -> str:
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
     return resp
+
+@app.route('/contact', methods = ['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return redirect("/", code=302)
+    return render_template("contact.html", form=form)

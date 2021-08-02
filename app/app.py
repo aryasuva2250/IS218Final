@@ -16,7 +16,7 @@ app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'biostats2'
 mysql.init_app(app)
 
-'''
+
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': "Miguel's Project"}
@@ -133,6 +133,6 @@ def api_delete(person_id) -> str:
     resp = Response(status=200, mimetype='application/json')
     return resp
 
-'''
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

@@ -6,3 +6,6 @@
 
 #Step 3 Part 3
 ![Step 3 Part 3](screenshots/step3Part 3.PNG)
+
+#Step 3 Part 4
+![Step 3 Part 4](screenshots/step3Part4.PNG)
