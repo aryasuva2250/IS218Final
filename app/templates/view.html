@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card" class="m-5 p-2">
+    <h5 class="card-title">{{ person.Name }}</h5>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Sex: {{ person.Sex }}</li>
+        <li class="list-group-item">Age: {{ person.Age }}</li>
+        <li class="list-group-item">Height(in): {{ person.Height_in }}</li>
+        <li class="list-group-item">Weight(lbs): {{ person.Weight_lbs }}</li>
+    </ul>
+    <div class="card-body">
+        <a href="/edit/{{person.id}}" class="card-link btn btn-primary">edit</a>
+    </div>
+<form action="/delete/{{person.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+</div>
+
+{% endblock %}

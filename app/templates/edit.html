@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/edit/{{person.id}}" method="post">
+    <div class="row">
+        <div class="col">
+            <label for="Name">Name</label>
+            <input id="Name" type="text" class="form-control" placeholder="Name" name="Name" value="{{person.Name}}">
+        </div>
+        <div class="col">
+            <label for="Sex">Sex</label>
+            <input id="Sex" type="text" class="form-control" placeholder="Sex"
+                   name="Sex" value="{{person.Sex}}">
+        </div>
+        <div class="col">
+            <label for="Age">Age</label>
+            <input id="Age" type="text" class="form-control" placeholder="Age" name="fldCountry" value="{{person.Age}}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label for="Height_in">Height(in)</label>
+            <input id="Height_in" type="text" class="form-control" placeholder="Height(in)" name="Height_in" value="{{person.Height_in}}">
+        </div>
+        <div class="col">
+            <label for="Weight_lbs">Weight(lbs)</label>
+            <input id="Weight_lbs" type="text" class="form-control" placeholder="Weight(lbs)" name="Weight_lbs" value="{{person.Weight_lbs}}">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>
+{% endblock %}

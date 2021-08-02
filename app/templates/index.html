@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Sex</th>
+        <th scope="col">Age</th>
+        <th scope="col">Height (in)</th>
+        <th scope="col">Weight (lbs)</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for person in persons %}
+    <tr>
+        <td><a href="view/{{person.id}}">{{ person.Name }}</a></td>
+        <td>{{ person.Sex }}</td>
+        <td>{{ person.Age }}</td>
+        <td>{{ person.Height_in }}</td>
+        <td>{{ person.Weight_lbs }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
