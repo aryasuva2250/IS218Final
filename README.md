@@ -1,11 +1,2 @@
-#Step 3 Part 1
-![Step 3 Part 1](screenshots/step3Part1.PNG)
-
-#Step 3 Part 2
-![Step 3 Part 2](screenshots/step3Part2.PNG)
-
-#Step 3 Part 3
-![Step 3 Part 3](screenshots/step3Part 3.PNG)
-
-#Step 3 Part 4
-![Step 3 Part 4](screenshots/step3Part4.PNG)
+#Step 4 Part 1
+![Step 3 Part 1](screenshots/step4Part1.PNG)
