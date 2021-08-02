@@ -1,21 +1,25 @@
 from typing import List, Dict
 import simplejson as json
-from flask import Flask, request, Response, redirect
+from flask import Flask, request, Response, redirect, make_response
 from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 
+from app.forms import ContactForm
 
 app = Flask(__name__, template_folder="templates")
+app.config.from_pyfile('config.py')
 mysql = MySQL(cursorclass=DictCursor)
 
+mysql.init_app(app)
+'''
 app.config['MYSQL_DATABASE_HOST'] = 'db'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'biostats2'
 mysql.init_app(app)
-
+'''
 
 @app.route('/', methods=['GET'])
 def index():
@@ -132,7 +136,28 @@ def api_delete(person_id) -> str:
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
     return resp
+@app.route('/contact', methods = ['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        return redirect("/", code=302)
+    return render_template("contact.html", form=form)
 
+@app.errorhandler(404)
+def not_found():
+    """Page not found."""
+    return make_response(
+        'SORRY. THIS PAGE IS NOT FOUND.',
+        404
+     )
+
+@app.errorhandler(400)
+def bad_request():
+    """Bad request."""
+    return make_response(
+        'BAD REQUEST! THIS SERVER DOES NOT SUPPORT YOUR REQUEST.',
+        400
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
