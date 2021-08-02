@@ -11,7 +11,8 @@ def init_app():
     mysql.init_app(app)
 
     with app.app_context():
-
-        from . import routes
+        
+        from .home.routes import home_bp
+        app.register_blueprint(home_bp)
 
         return app

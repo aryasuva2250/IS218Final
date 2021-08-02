@@ -4,7 +4,7 @@ from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 
-from app.application.forms import ContactForm
+from app.application.home.forms import ContactForm
 
 app = Flask(__name__, template_folder="templates")
 app.config.from_pyfile('config.py')
