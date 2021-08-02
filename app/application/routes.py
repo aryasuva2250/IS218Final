@@ -1,12 +1,9 @@
-from typing import List, Dict
 import simplejson as json
-from flask import Flask, request, Response, redirect, make_response
+from flask import request, Response, redirect, make_response
 from flask import current_app as app
 from flask import render_template
-from pymysql.cursors import DictCursor
-from flaskext.mysql import MySQL
-from app.app import mysql
-from app.forms import ContactForm
+from app import mysql
+from app import ContactForm
 
 
 @app.route('/', methods=['GET'])

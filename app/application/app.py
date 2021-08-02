@@ -1,11 +1,10 @@
-from typing import List, Dict
 import simplejson as json
 from flask import Flask, request, Response, redirect, make_response
 from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 
-from app.forms import ContactForm
+from app.application.forms import ContactForm
 
 app = Flask(__name__, template_folder="templates")
 app.config.from_pyfile('config.py')
