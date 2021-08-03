@@ -3,12 +3,15 @@ from flask import Flask, request, Response, redirect, make_response
 from flask import render_template
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
+from flask_assets import Environment
 
 from app.application.home.forms import ContactForm
 
 app = Flask(__name__, template_folder="templates")
 app.config.from_pyfile('config.py')
 mysql = MySQL(cursorclass=DictCursor)
+
+assets = Environment(app)
 
 mysql.init_app(app)
 '''
