@@ -1,6 +1,9 @@
 """Initialize Flask app."""
 from flask import Flask
+from flaskext.mysql import MySQL
+from pymysql.cursors import DictCursor
 
+mysql = MySQL(cursorclass=DictCursor)
 
 def create_app():
     """Create Flask application."""
