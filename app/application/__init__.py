@@ -14,7 +14,7 @@ def init_app():
     db.init_app(app)
     r.init_app(app)
     with app.app_context():
-        from . import routes
+        from app.application.home import routes
         app.register_blueprint(auth.auth_bp)
         app.register_blueprint(admin.admin_bp)
         return app
